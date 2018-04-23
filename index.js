@@ -4,10 +4,10 @@ const fs = require('fs')
 const yaml = require('js-yaml')
 
 function load (dir) {
-  const env = process.env.NODE_ENV || process.env.RAILS_ENV || process.env.RACK_ENV || 'development'
+  const env = process.env.NODE_ENV || 'development'
 
   const configEnvs = [env]
-  if (env === 'development' && process.env.CONFIG_ENV) {
+  if (process.env.CONFIG_ENV && process.env.CONFIG_ENV !== env) {
     configEnvs.unshift(process.env.CONFIG_ENV)
   }
 
