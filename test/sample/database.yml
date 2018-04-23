@@ -1,0 +1,10 @@
+default: &default
+  adapter: postgresql
+
+development:
+  <<: *default
+  database: dev
+
+production:
+  <<: *default
+  database: prod
